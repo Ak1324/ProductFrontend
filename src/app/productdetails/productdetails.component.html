@@ -1,0 +1,19 @@
+<p>productdetails works!</p>
+<p>productcatr works!</p>
+
+
+         <div **ngIf="feedbacks">
+
+            
+            <p>{{feedbacks.product.productId}}</p>
+            <p>{{feedbacks.product.productName}}</p>
+            <p>{{feedbacks.product.productPrice}}</p>
+            <p>{{feedbacks.product.productSeller}}</p>
+           <p>{{feedbacks.product.productCategory}}</p>
+           <p>{{feedbacks.rating}}</p>
+           <p>{{feedbacks.feedback}}</p>
+            
+         </div>
+         <div *ngIf="!feedbacks">
+            <p class="text-danger">Product not found</p>
+          </div>

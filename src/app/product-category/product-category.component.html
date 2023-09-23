@@ -1,0 +1,39 @@
+<h3 class="text-center">List of Products</h3>
+<div *ngIf="products;else err" class="container prod-table">
+ 
+    <div>
+        <label for="categorySelect" class="text-center m-2">Search By category</label>
+        <input type="text" id="categorySelect" class="form-control w-25 m-3" [(ngModel)]="filteredCategory" />
+    </div>
+   
+
+  <table class="table">
+    <thead>
+         <tr>
+           <th>productId</th>
+           <th>productName</th>
+           <th>productPrice</th>
+           <th>productSeller</th>
+           <th>productCategory</th>
+           <th></th>
+           <th></th>
+         </tr>
+    </thead>
+    <tbody class="text-center">
+
+         <tr *ngFor="let productd of products | productFilter:filteredCategory">
+
+            <td>{{productd['productId']}}</td>
+            <td>{{productd['productName']}}</td>
+            <td>{{productd['productPrice']}}</td>
+            <td>{{productd['productSeller']}}</td>
+            <td>{{productd['productCategory']}}</td>
+           
+         </tr>
+    </tbody>
+  </table>
+
+</div>
+<ng-template #err >
+<p class="text-danger">Error fetching data from backend</p>
+</ng-template>

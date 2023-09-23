@@ -1,0 +1,119 @@
+<p>productcompare works!</p>
+
+<div>
+
+    <label for="categorySelect">Search By category</label>
+
+    <input type="text" id="categorySelect" class="form-control" [(ngModel)]="filteredCategory" />
+
+    <button (click)="filterProductsByCategory()">Compare Products</button>
+
+  </div>
+
+ 
+
+  <table class="table">
+
+    <thead>
+
+      <tr>
+
+        <th>productId</th>
+
+        <th>productName</th>
+
+        <th>productPrice</th>
+
+        <th>productSeller</th>
+
+        <th>productCategory</th>
+
+        <th></th>
+
+        <th></th>
+
+      </tr>
+
+    </thead>
+
+    <tbody class="text-center">
+
+      <tr *ngFor="let productd of products | productFilter:filteredCategory">
+
+        <td>{{ productd.productId }}</td>
+
+        <td>{{ productd.productName }}</td>
+
+        <td>{{ productd.productPrice }}</td>
+
+        <td>{{ productd.productSeller }}</td>
+
+        <td>{{ productd.productCategory }}</td>
+
+        <td>
+
+          <button (click)="addToComparison(productd)">Add to Compare</button>
+
+        </td>
+
+        <td>
+
+          <button (click)="removeFromComparison(productd)">Remove from Compare</button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+ 
+
+  <!-- Display selected product for comparison -->
+
+  <div *ngIf="selectedProduct">
+
+    <h3>Selected Product for Comparison</h3>
+
+    <table class="table">
+
+      <thead>
+
+        <tr>
+
+          <th>productId</th>
+
+          <th>productName</th>
+
+          <th>productPrice</th>
+
+          <th>productSeller</th>
+
+          <th>productCategory</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody class="text-center">
+
+        <tr>
+
+          <td>{{ selectedProduct.productId }}</td>
+
+          <td>{{ selectedProduct.productName }}</td>
+
+          <td>{{ selectedProduct.productPrice }}</td>
+
+          <td>{{ selectedProduct.productSeller }}</td>
+
+          <td>{{ selectedProduct.productCategory }}</td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>

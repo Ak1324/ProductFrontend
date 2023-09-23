@@ -1,0 +1,85 @@
+<h2>Product List</h2>
+
+ 
+
+<button class="add-button" (click)="toggleProductForm()">Add Product</button>
+
+ 
+
+<div *ngIf="showProductForm" class="product-form">
+
+  <h3>Add Product</h3>
+
+  <form (ngSubmit)="addProduct()">
+
+    <label for="productName">Name:</label>
+
+    <input type="text" id="productName" [(ngModel)]="newProduct.name" name="productName" required>
+
+ 
+
+    <label for="productPrice">Price:</label>
+
+    <input type="number" id="productPrice" [(ngModel)]="newProduct.price" name="productPrice" required>
+
+ 
+
+    <label for="productSeller">Seller:</label>
+
+    <input type="text" id="productSeller" [(ngModel)]="newProduct.seller" name="productSeller" required>
+
+ 
+
+    <label for="productCategory">Category:</label>
+
+    <input type="text" id="productCategory" [(ngModel)]="newProduct.category" name="productCategory" required>
+
+ 
+
+    <button type="submit">Add</button>
+
+  </form>
+
+</div>
+
+ 
+
+<table class="product-table">
+
+  <thead>
+
+    <tr>
+
+      <th>Product ID</th>
+
+      <th>Name</th>
+
+      <th>Price</th>
+
+      <th>Seller</th>
+
+      <th>Category</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let product of products">
+
+      <td>{{ product.productId }}</td>
+
+      <td>{{ product.name }}</td>
+
+      <td>{{ product.price | currency }}</td>
+
+      <td>{{ product.seller }}</td>
+
+      <td>{{ product.category }}</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
